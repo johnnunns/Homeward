@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="client/stylesheets/animate.css">
+  <link rel="stylesheet" href="client/stylesheets/style.css">
+</head>
+
+<body>
+
+  <div id="content">
+  </div>
+
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/lodash/lodash.min.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src='build/bundle.js'></script>
+
+</body>
+<script src='test/schedule.js'></script>
+<script src="./lib/expect/index.js"></script>
+<script src="./lib/mocha/mocha.js"></script>
+<script src="./test/polyfill.js"></script>
+
+<script>
+  if (window.mochaPhantomJS) {
+    mocha.setup('bdd');
+    // addScript("./test/calendar-test.js");
+    addScript("./test/online-calendar-test.js");
+  }
+
+  function addScript(path) {
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = path;
+    document.body.appendChild(js);
+  }
+</script>
+</html>
